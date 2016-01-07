@@ -1,9 +1,9 @@
 from flask import Flask
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='public')
 
 @app.route('/')
 def index():
-    return 'Witaj na bashu serwisu 4programmers.net!'
+    return app.send_static_file('index.html')
 
 if __name__ == '__main__':
     app.run()
